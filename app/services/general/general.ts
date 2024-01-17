@@ -5,8 +5,6 @@
     - Указать в методах возвращающие типы, типы для параметров, в теле функции также указать типы
 */
 
-type
-
 export function initHeaderTitle(ticketName, selector): void {
     const headerElement= document.querySelector('header');
     const targetItem = headerElement.querySelector(selector);
