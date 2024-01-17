@@ -4,7 +4,10 @@
 /*  -
     - Указать в методах возвращающие типы, типы для параметров, в теле функции также указать типы
 */
-export function initHeaderTitle(ticketName, selector) {
+
+type
+
+export function initHeaderTitle(ticketName, selector): void {
     const headerElement= document.querySelector('header');
     const targetItem = headerElement.querySelector(selector);
     if (targetItem) {
@@ -12,7 +15,7 @@ export function initHeaderTitle(ticketName, selector) {
     }
 }
 
-export function initFooterTitle(ticketName, selector) {
+export function initFooterTitle(ticketName, selector): void {
     const headerElement = document.querySelector('footer');
     const targetItem = headerElement.querySelector(selector);
     if (targetItem) {
