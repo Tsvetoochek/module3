@@ -1,4 +1,4 @@
-export interface Itours {
+export interface ITours {
     description: string;
     id: number;
     img: string;
