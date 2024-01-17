@@ -31,3 +31,11 @@ export function openModal(type, i: number) {
 }
 
 
+class ModalService {
+    public static modals;  // массив всех экземпляров класса modalService;
+    public open(template) {};
+    public remove(){};
+    public static removeById(id) {
+    }
+}
+
