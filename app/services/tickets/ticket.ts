@@ -36,9 +36,6 @@ function initUserData() {
             userInfoObj[inputDataName] = inputElems.value;
         }
     });
-
-    console.log('userInfoObj',userInfoObj)
-    return userInfoObj;
 }
 
 function initPostData(data: object) {
