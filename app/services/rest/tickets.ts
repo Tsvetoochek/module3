@@ -16,7 +16,7 @@ export function getTicketById<T>(id): Promise<T[]> {
 
 // запрос на на отправку данных - пока не используется
 
-export function postTicketData(postData): Promise<{success: boolean}> {
+export function postTicketData(postData: object): Promise<{success: boolean}> {
     return fetch('https://62b9e756ff109cd1dc9dae16.mockapi.io/apiv/v1/ticket').then((response) => response.json())
         .then((data: {success: boolean}) => {
             return data;

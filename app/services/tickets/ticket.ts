@@ -2,7 +2,7 @@ import {IVipTicket, TicketType} from "../../models/ticket/ticket";
 import {initTicketElementTemplate} from "../../templates/ticketInfo";
 import {postTicketData} from "@rest/tickets";
 
-let ticketPostInstance;
+let ticketPostInstance: object;
 
 export function initTicketInfo(ticket: TicketType | IVipTicket) {
     const targetElement = document.querySelector('.ticket-info');
@@ -41,7 +41,7 @@ function initUserData() {
     return userInfoObj;
 }
 
-function initPostData(data) {
+function initPostData(data: object) {
     initUserData();
     postTicketData(data).then((data) => {
         if (data.success) {

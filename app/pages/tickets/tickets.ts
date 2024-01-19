@@ -1,23 +1,14 @@
-import {getTicketById, postTicketData} from "@rest/tickets";
+import {getTicketById} from "@rest/tickets";
 import '@myCss'; // добавлена новая ссылка - ссылка ведет на один файл
 import '@assets/styles/tickets.scss'
-import {initTicketElementTemplate} from "../../templates/ticketInfo";
-import {IVipTicket, TicketType, ITicket} from "../../models/ticket/ticket";
+import {IVipTicket, TicketType} from "../../models/ticket/ticket";
 import {initFooterTitle, initHeaderTitle} from "@services/general/general";
 import {initTicketInfo, registerConfirmButton} from "@services/tickets/ticket";
 
 
 let ticketInstance: TicketType ;
-let ticketPostInstance;
-const clientType = "custom";
 
-
-
-// init main  data
 initApp();
-registerConfirmButton();
-
-
 
 function initApp(): void {
     const ticketData: Promise<IVipTicket[]> = getTicketById<IVipTicket>('someId');
@@ -28,11 +19,5 @@ function initApp(): void {
         initFooterTitle('Туры по всему миру', 'h2');
         initTicketInfo(ticketInstance);
     });
+    registerConfirmButton();
 }
-
-/*  - перенести все методы ниже в раздел services (сюда импортировать и вызывать)
-    - Указать в методах возвращающие типы, в теле функции также указать типы чтобы не было ошибок
-*/
-
-
-
