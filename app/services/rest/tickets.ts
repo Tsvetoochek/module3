@@ -2,8 +2,13 @@
   -  запрос на получение информации о туре
  */
 
-export function getTicketById<T>(id: number): Promise<T[]> {
-    return fetch('https://62b9e756ff109cd1dc9dae16.mockapi.io/apiv/v1/ticket').then((response) => response.json())
+export function getTicketById<T>(id: string): Promise<T[]> {
+  let url = 'https://62b9e756ff109cd1dc9dae16.mockapi.io/apiv/v1/ticket';
+
+  if (id) {
+    url += `/${id}`;
+  }
+    return fetch(url).then((response) => response.json())
         .then((data: T[]) => {
             return data;
         });

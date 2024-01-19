@@ -16,7 +16,7 @@ module.exports = {
         inject: true,
         chunks: ['index'],
         filename: 'index.html'
-    }),
+        }),
         new HtmlWebpackPlugin({
             template: "./pageTemplates/ticket/index.html",
             inject: true,

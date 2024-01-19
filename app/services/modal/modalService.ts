@@ -5,7 +5,7 @@ import {toursDataArray} from "../../index";
 export function openModal(type: string, i: number): void {
 
     const data = toursDataArray[i];
-    const tourId = data[i]?.id;
+    const tourId = data?.id;
 
     switch (type) {
         case "order":
@@ -15,7 +15,7 @@ export function openModal(type: string, i: number): void {
                   <p>${data.name}</p>
                   <p>${data.description}</p>
                   <div data-tour-id=${tourId} class="ticket-submit">
-                    <a href="/ticket.html">Купить билет</a>
+                    <a href="./ticket.html?id=${tourId}">Купить билет</a>
                   </div>
                 </div>`;
 
