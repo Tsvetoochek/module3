@@ -1,17 +1,18 @@
 export default class Modal {
     public readonly id: string;
     private modalElement: null | HTMLElement;
+    private isOpened: boolean = false;
 
     constructor(id: string) {
         this.id = id;
     }
 
-    open(template: string): void {
-        if (this.modalElement) {
-            this.modalElement.style.display = 'block';
-        } else {
-            this.createModal(template);
+    open(): void {
+        if (this.isOpened) {
+            return;
         }
+        document.body.appendChild(this.modalElement);
+        this.isOpened = true;
     }
 
     private getCloseButton() {
@@ -25,10 +26,11 @@ export default class Modal {
         return closeButton;
     }
 
-    private createModal(template: string): void {
+    public createModal(template: string): void {
         const modalElement = document.createElement("div");
         modalElement.id = this.id;
         modalElement.setAttribute('modal_id', this.id);
+        modalElement.setAttribute('z-index', '100');
         modalElement.className = 'modal-element';
         modalElement.innerHTML = template;
         modalElement.append(this.getCloseButton());
@@ -41,13 +43,12 @@ export default class Modal {
         }
 
         this.modalElement = modalElement;
-
-        document.body.appendChild(this.modalElement);
     }
 
     close(): void {
-        if (this.modalElement) {
-            this.modalElement.style.display = 'none';
+        if (this.isOpened) {
+            document.getElementById(this.id).remove();
+            this.isOpened = false;
         }
     }
 }
